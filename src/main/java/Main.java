@@ -10,6 +10,6 @@ public class Main {
         myThread.start();
 
         ThreadByRunnable threadByRunnable = new ThreadByRunnable(counter);
-        threadByRunnable.run();
+        new Thread(threadByRunnable).start();
     }
 }
