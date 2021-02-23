@@ -31,7 +31,7 @@ public class MyCallable implements Callable<Integer> {
                 sum += future.get();
             }
         } catch (InterruptedException | ExecutionException e) {
-            throw new RuntimeException("");
+            throw new RuntimeException("Doesn't work correctly", e);
         }
         executorService.shutdown();
         return sum;
