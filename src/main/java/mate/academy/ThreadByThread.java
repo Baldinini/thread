@@ -14,8 +14,7 @@ public class ThreadByThread extends Thread {
     public void run() {
         System.out.println("My thread which extends Thread is running...");
         while (counter.getCount() != 100) {
-            int number = counter.increment();
-            logger.info("Thread: " + number);
+            logger.info("Thread: " + counter.increment());
         }
     }
 }

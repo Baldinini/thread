@@ -14,8 +14,7 @@ public class ThreadByRunnable implements Runnable {
     public void run() {
         System.out.println("My thread which implements Runnable is running...");
         while (counter.getCount() != 100) {
-            int number = counter.increment();
-            logger.info("Runnable: " + number);
+            logger.info("Runnable: " + counter.increment());
         }
     }
 }
