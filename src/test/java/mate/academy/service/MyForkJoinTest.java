@@ -6,8 +6,8 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class MyForkJoinTest {
-    private List<Integer> list = Util.getList();
-    private MyForkJoin forkJoin = new MyForkJoin(list);
+    private final List<Integer> list = Util.getList();
+    private final MyForkJoin forkJoin = new MyForkJoin(list);
 
     @Test
     public void getSum_Ok() {

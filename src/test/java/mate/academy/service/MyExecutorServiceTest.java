@@ -7,7 +7,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class MyExecutorServiceTest {
-    private List<Integer> list = Util.getList();
+    private final List<Integer> list = Util.getList();
     private Callable<Integer> callable;
 
     @Test
