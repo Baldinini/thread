@@ -1,17 +1,24 @@
 package mate.academy.service;
 
 import java.util.List;
+import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class MyForkJoinTest {
-    private final List<Integer> list = Util.getList();
-    private final MyForkJoin forkJoin = new MyForkJoin(list);
+    private List<Integer> list;
+    private MyForkJoin forkJoin;
+
+    @Before
+    public void setUp() throws Exception {
+        list = ListOfNumbersProducer.getList();
+        forkJoin = new MyForkJoin(list);
+    }
 
     @Test
     public void getSum_Ok() {
-        Integer expected = list.stream().reduce(0, Integer::sum);
+        Integer expected = ListOfNumbersProducer.getSum();
         Integer actually = forkJoin.compute();
         assertEquals(expected, actually);
     }

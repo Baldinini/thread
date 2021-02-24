@@ -1,19 +1,25 @@
 package mate.academy.service;
 
 import java.util.List;
-import java.util.concurrent.Callable;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
 public class MyExecutorServiceTest {
-    private final List<Integer> list = Util.getList();
-    private Callable<Integer> callable;
+    private List<Integer> list;
+    private ExecutorServiceCalculator executorService;
+
+    @Before
+    public void setUp() throws Exception {
+        list = ListOfNumbersProducer.getList();
+        executorService = new ExecutorServiceCalculator(list);
+    }
 
     @Test
     public void getSum_Ok() {
-        Integer expected = list.stream().reduce(0, Integer::sum);
-        Integer actually = MyCallable.getSum(list);
+        Integer expected = ListOfNumbersProducer.getSum();
+        Integer actually = executorService.getSum(list);
         assertEquals(expected, actually);
     }
 }
