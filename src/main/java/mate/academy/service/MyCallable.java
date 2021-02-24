@@ -30,11 +30,12 @@ public class MyCallable implements Callable<Integer> {
             for (Future<Integer> future : futures) {
                 sum += future.get();
             }
+            return sum;
         } catch (InterruptedException | ExecutionException e) {
             throw new RuntimeException("Doesn't work correctly", e);
+        } finally {
+            executorService.shutdown();
         }
-        executorService.shutdown();
-        return sum;
     }
 
     @Override
